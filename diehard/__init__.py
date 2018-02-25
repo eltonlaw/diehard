@@ -2,7 +2,7 @@
 Tests for randomness.
 """
 
-__title__ = 'figures'
+__title__ = 'diehard'
 __version__ = '0.0.1'
 __build__ = 0x021300
 __author__ = 'Elton Law'

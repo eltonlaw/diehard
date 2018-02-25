@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python3 -m sphinx
-SPHINXPROJ    = figures
+SPHINXPROJ    = diehard
 SOURCEDIR     = .
 BUILDDIR      = _build
 

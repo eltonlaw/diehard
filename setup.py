@@ -18,21 +18,20 @@ def get_reqs():
 def get_version():
     """ Gets version from impyute.__init__.py
 
-    Runs `impyute.__init__` and loads defined variables into scope
+    Runs `figures.__init__` and loads defined variables into scope
     """
-    with open(os.path.join('impyute', '__init__.py')) as version_file:
+    with open(os.path.join('dieharder', '__init__.py')) as version_file:
         # pylint: disable=exec-used, undefined-variable
         exec(version_file.read(), globals())
         return __version__
 
-
 setup(
-    name='dieharder',
+    name='figures',
     author='Elton Law',
     author_email='eltonlaw296@gmail.com',
     version=get_version(),
-    url="http://dieharder.readthedocs.io/en/latest/",
-    download_url='https://github.com/eltonlaw/dieharder',
+    url="http://figures.readthedocs.io/en/latest/",
+    download_url='https://github.com/eltonlaw/figures',
     description='Tests for randomness.',
     long_description=get_description(),
     packages=find_packages(exclude=['docs']),
@@ -46,7 +45,7 @@ setup(
                  'Topic :: Scientific/Engineering'],
     extras_require={
         'dev': ['pylint', 'sphinx'],
-        'test': ['pytest'],
+        'test': ['tox'],
     },
-    license='GPL-3.0'
+    license='Apache License 2.0'
 )

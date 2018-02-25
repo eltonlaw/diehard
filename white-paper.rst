@@ -1,5 +1,5 @@
 ==================================
-Dieharder: A Python RNG Test Suite
+Figures: A Python RNG Test Suite
 ==================================
 
 Notes

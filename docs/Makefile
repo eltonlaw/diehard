@@ -3,8 +3,8 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = dieharder
+SPHINXBUILD   = python3 -m sphinx
+SPHINXPROJ    = figures
 SOURCEDIR     = .
 BUILDDIR      = _build
 

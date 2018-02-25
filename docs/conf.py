@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# dieharder documentation build configuration file, created by
+# figures documentation build configuration file, created by
 # sphinx-quickstart on Sat Feb 24 15:43:54 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -50,7 +50,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'dieharder'
+project = 'figures'
 copyright = '2018, Elton Law'
 author = 'Elton Law'
 
@@ -119,7 +119,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'dieharderdoc'
+htmlhelp_basename = 'figuresdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -146,7 +146,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'dieharder.tex', 'dieharder Documentation',
+    (master_doc, 'figures.tex', 'figures Documentation',
      'Elton Law', 'manual'),
 ]
 
@@ -156,7 +156,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'dieharder', 'dieharder Documentation',
+    (master_doc, 'figures', 'figures Documentation',
      [author], 1)
 ]
 
@@ -167,8 +167,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'dieharder', 'dieharder Documentation',
-     author, 'dieharder', 'One line description of project.',
+    (master_doc, 'figures', 'figures Documentation',
+     author, 'figures', 'One line description of project.',
      'Miscellaneous'),
 ]
 

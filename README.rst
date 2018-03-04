@@ -1,6 +1,8 @@
 .. image:: https://travis-ci.org/eltonlaw/diehard.svg?branch=master
     :target: https://travis-ci.org/eltonlaw/diehard
-    :alt: Build status of the master branch
+    
+.. image:: https://img.shields.io/pypi/v/diehard.svg
+    :target: https://pypi.python.org/pypi/diehard
 
 Diehard
 =======

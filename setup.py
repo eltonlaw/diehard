@@ -51,7 +51,7 @@ setup(
                  'Topic :: Scientific/Engineering'],
     extras_require={
         'dev': ['pylint', 'sphinx'],
-        'test': ['tox'],
+        'test': ['pytest'],
     },
     license='Apache License 2.0'
 )

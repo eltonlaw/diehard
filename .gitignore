@@ -6,3 +6,9 @@ TODO
 */.DS_Store
 */.pyc
 */__pycache__
+.pytest_cache/
+.tox/
+build/
+diehard.egg-info/
+diehard/__init__.pyc
+dist/

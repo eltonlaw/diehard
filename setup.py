@@ -1,5 +1,6 @@
 """ setup.py """
 import os
+import sys
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
 
@@ -11,19 +12,24 @@ def get_description():
 
 def get_reqs():
     """ Parses `requirements.txt` for dependencies"""
-    parsed_reqs = parse_requirements("requirements/common.txt", session=False)
+    parsed_reqs = parse_requirements("requirements/base.txt", session=False)
     reqs = [str(ir.req) for ir in parsed_reqs]
     return reqs
 
 def get_version():
-    """ Gets version from impyute.__init__.py
+    """ Gets version from diehard.__init__.py
 
     Runs `diehard.__init__` and loads defined variables into scope
     """
-    with open(os.path.join('dieharder', '__init__.py')) as version_file:
+    with open(os.path.join('diehard', '__init__.py')) as version_file:
         # pylint: disable=exec-used, undefined-variable
         exec(version_file.read(), globals())
         return __version__
+
+if sys.argv[-1] == 'publish':
+    os.system('python setup.py sdist bdist_wheel')
+    os.system('twine upload dist/*')
+    sys.exit()
 
 setup(
     name='diehard',

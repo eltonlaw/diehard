@@ -1,7 +1,7 @@
 Diehard
 =======
 
-.. |build| image:: https://travis-ci.org/eltonlaw/diehard.svg?branch=master
+.. image:: https://travis-ci.org/eltonlaw/diehard.svg?branch=master
     :target: https://travis-ci.org/eltonlaw/diehard
     :alt: Build status of the master branch
 

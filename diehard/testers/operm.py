@@ -5,9 +5,9 @@ from diehard.utils import preprocess
 from diehard.utils import chunker
 
 @preprocess
-def overlapping_permutations(arr, consecutive=5):
+def operm(arr, consecutive=5):
     """ Analyze sequences of n consecutive real numbers. All possible
-    orderings should occur with statistically equal probability
+    orderings should occur with statistically equal probability.
 
     PARAMETERS
     ----------

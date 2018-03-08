@@ -42,7 +42,7 @@ setup(
     long_description=get_description(),
     packages=find_packages(exclude=['docs']),
     install_requires=get_reqs(),
-    keywords=["rng", "tests"],
+    keywords=["RNG", "tests"],
     classifiers=['Development Status :: 3 - Alpha',
                  'Intended Audience :: Science/Research',
                  'Intended Audience :: Developers',

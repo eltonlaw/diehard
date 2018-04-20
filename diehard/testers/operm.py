@@ -16,6 +16,9 @@ def operm(arr, consecutive=5):
 
     RETURNS
     -------
+    collections.Counter
+        Keys are the permutation of orderings possible. Value is the number
+        of occurences found.
     """
     chunks = chunker(arr, consecutive, skip=1, complete=True)
     chunks_np = np.array(list(chunks))

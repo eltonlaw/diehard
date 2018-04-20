@@ -1,4 +1,4 @@
-def chunker(arr, batch_size, skip=None, complete=False):
+def chunker(arr, batch_size, skip=None, complete=True):
     """ Chunk an array into smaller sequences
 
     batch_size:

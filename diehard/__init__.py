@@ -10,5 +10,6 @@ __license__ = 'Apache License 2.0'
 __copyright__ = 'Copyright 2018 Elton law'
 
 from diehard.testers import operm
+from diehard.testers import cat
 
 __all__ = ["utils"]

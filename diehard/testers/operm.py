@@ -17,11 +17,8 @@ def operm(arr, consecutive=5):
     RETURNS
     -------
     """
-    # n_permutations = np.math.factorial(consecutive)
-    chunks = chunker(arr, consecutive, overlapping=True, complete=True)
+    chunks = chunker(arr, consecutive, skip=1, complete=True)
     chunks_np = np.array(list(chunks))
     orderings = np.argsort(chunks_np)
     unique_counter = collections.Counter((map(tuple, orderings)))
-
-    # TODO: Compute variance analysis and randomness likelihood
     return unique_counter

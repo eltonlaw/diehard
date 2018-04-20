@@ -1,14 +1,15 @@
-def chunker(arr, batch_size, overlapping=False, complete=False):
+def chunker(arr, batch_size, skip=None, complete=False):
     """ Chunk an array into smaller sequences
 
+    batch_size:
+        The number of elements in each chunk
+    skip:
+        If None, skips indices so that there is no overlap between chunks
     complete:
-        For only returning batches that have length n
-    overlapping:
-        For generating batches that overlap
+        For only returning batches that have length batch_size
     """
-    skip = batch_size
-    if overlapping:
-        skip = 1
+    if skip is None:
+        skip = batch_size
 
     start = 0
     end = len(arr)

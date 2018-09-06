@@ -9,12 +9,12 @@ def operm(arr, consecutive=5):
     """ Analyze sequences of n consecutive real numbers. All possible
     orderings should occur with statistically equal probability.
 
-    PARAMETERS
+    Parameters
     ----------
     arr: numpy.array
         1D list
 
-    RETURNS
+    Returns
     -------
     collections.Counter
         Keys are the permutation of orderings possible. Value is the number

@@ -9,13 +9,14 @@
     <title>diehard &#8212; diehard 0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api/index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -28,24 +29,54 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="diehard">
 <h1>diehard<a class="headerlink" href="#diehard" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quick-reference">
+<h2>Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/testers.html">Testers</a></li>
 </ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_notes.html">Contributing Notes</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>From <a class="reference external" href="https://en.wikipedia.org/wiki/Diehard_tests">Wikipedia</a>, the “diehard tests are a battery of statistical tests for
+measuring the quality of a random number generator. They were developed by
+George Marsaglia over several years and first published in 1995 on a CD-ROM of
+random numbers.”</p>
+<p>Following that link, the outputs of each test vary wildly and I couldn’t figure
+out a good way to aggregate them so I’ve for the most part left them as is (or
+that was the intent, there is the competing interest of making it easy to
+parse).</p>
+<p>This project was originally motivated from something I heard in an audiobook
+(maybe Naked Statistics?), my memory is hazy but it went something a long the
+lines of this. A blogger had calculated the statistical probabilities of some
+public data numbers and come to the conclusion that they weren’t likely to be
+real, someone had fudged them. After a fuss was kicked up and an investigation
+was started, it was proven that they were right - one of the people in charge
+of the data recording or publishing or something had thrown in some random
+numbers. Not only is this rather awesome because statistics got to kick some
+ass</p>
+<p>but it gave me a renewed sense of hope for the possibility of an individual to
+constitute change in what seems occasionally like a broken world.</p>
+<p>Or at least that’s the end goal, right now it’s just yet another unfinished
+open source Python project (or YAUOSPP for short). This project welcomes
+contributions.</p>
+</div>
 </div>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -60,11 +91,16 @@
 
 
 <h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_notes.html">Contributing Notes</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="api/index.html" title="next chapter">API Reference</a></li>
   </ul></li>
 </ul>
 </div>
@@ -88,8 +124,8 @@
       &copy;2018, Elton Law.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="_sources/index.rst.txt"

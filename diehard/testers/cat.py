@@ -71,8 +71,9 @@ def cat(arr, match="CAT", upper_bound=None, lower_bound=None):
     words = chunker(letters, batch_size=num_letters, complete=True)
 
     iter_counts = {match_i: [] for match_i in match}
-    for i, word in enumerate(words):
-        if ''.join(word) in match:
+    for i, letter_list in enumerate(words):
+        word = ''.join(letter_list)
+        if word in match:
             iter_counts[word].append(i)
 
     return iter_counts

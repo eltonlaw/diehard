@@ -1,6 +1,3 @@
-init:
-	pip install -r requirements.txt
-
 test:
 	docker pull eltonlaw/pybase
 	docker build -t diehard .
@@ -8,6 +5,10 @@ test:
 	docker run diehard python3.4 -m pytest
 	docker run diehard python3.5 -m pytest
 	docker run diehard python3.6 -m pytest
+
+deps:
+	pip install -r requirements/base.txt
+	pip install -r requirements/dev.txt
 
 docker-pybase:
 	docker build -t pybase -f Dockerfile.pybase .

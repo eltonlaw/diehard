@@ -8,3 +8,5 @@ Diehard
 =======
 
 Tests for randomness. Inspired by Robert G. Brown's random number Dieharder test suite and the Diehard tests
+
+Read The Docs: https://diehard.readthedocs.io/en/latest/

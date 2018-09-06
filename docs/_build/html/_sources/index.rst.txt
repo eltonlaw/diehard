@@ -6,15 +6,17 @@
 diehard
 =====================================
 
+
+Quick Reference
+---------------
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   API <api/index>
+   Contributing Notes <contributing_notes>
 
+Introduction
+------------
 
+From Wikipedia_, the "diehard tests are a battery of statistical tests for measuring the quality of a random number generator. They were developed by George Marsaglia over several years and first published in 1995 on a CD-ROM of random numbers."
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. _Wikipedia: https://en.wikipedia.org/wiki/Diehard_tests

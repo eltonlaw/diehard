@@ -1,0 +1,175 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>diehard.testers.cat &#8212; diehard 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for diehard.testers.cat</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot; cat.py &quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">diehard.utils</span> <span class="k">import</span> <span class="n">preprocess</span>
+<span class="kn">from</span> <span class="nn">diehard.utils</span> <span class="k">import</span> <span class="n">chunker</span>
+
+<div class="viewcode-block" id="cat"><a class="viewcode-back" href="../../../api/testers.html#diehard.testers.cat">[docs]</a><span class="nd">@preprocess</span>
+<span class="k">def</span> <span class="nf">cat</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;CAT&quot;</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Basic idea is if a monkey typed randomly, how long would it take for it</span>
+<span class="sd">    to write `CAT`. Practically, we are mapping generated numbers onto the</span>
+<span class="sd">    alphabet.</span>
+
+<span class="sd">    &gt;&quot;There are 26**3 = 17 576 possible 3-letter words, so the average number of</span>
+<span class="sd">    keystrokes necessary to produce CAT should be around 17 576&quot; [1]</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    ------- </span>
+<span class="sd">    </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    word: string or list-type object</span>
+<span class="sd">        All elements of the string must be the same number of characters</span>
+<span class="sd">    match: string or list-type object</span>
+<span class="sd">        The keyword to search for. Other than length, doesn&#39;t really matter.</span>
+<span class="sd">        If you pass in a list of strings, it will give you a result for each</span>
+<span class="sd">        passed in string.</span>
+<span class="sd">    upper_bound: int (optional)</span>
+<span class="sd">        Upper bound of random values. If not set, will calculate the minimum</span>
+<span class="sd">        value from the array passed.</span>
+<span class="sd">    lower_bound: int (optional)</span>
+<span class="sd">        Lower bound of random values. If not set, will calculate the maximum</span>
+<span class="sd">        value from the array passed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Key is the string passed into match, the value is a list of the</span>
+<span class="sd">        iteration cycles it was found at</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    [1]: Marsaglia, G. and Zaman, A., (1995), Monkey tests for random number</span>
+<span class="sd">    generators, Computers &amp; Mathematics with Applications, 9, No. 9, 1–10.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">upper_bound</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lower_bound</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="p">[</span><span class="n">match</span><span class="p">]</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">match</span><span class="p">))</span>
+    <span class="n">num_letters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">match_i</span><span class="p">)</span> <span class="o">==</span> <span class="n">num_letters</span> <span class="k">for</span> <span class="n">match_i</span> <span class="ow">in</span> <span class="n">match</span><span class="p">]),</span> \
+            <span class="s2">&quot;All elements of `match` must have the same number of characters&quot;</span>
+
+    <span class="n">n_uppercase</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">)</span>
+    <span class="c1"># {...number: letter...} mapping</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_uppercase</span><span class="p">),</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">))</span>
+
+    <span class="c1"># Scale the array so that everything is between 0 and 26</span>
+    <span class="n">arr_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">arr</span> <span class="o">-</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_uppercase</span><span class="o">/</span><span class="n">upper_bound</span><span class="p">))</span>
+
+    <span class="c1"># Map the integer component to letters</span>
+    <span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr_norm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)]</span>
+    <span class="c1"># Split the array of letters into words</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">chunker</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">num_letters</span><span class="p">,</span> <span class="n">complete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">iter_counts</span> <span class="o">=</span> <span class="p">{</span><span class="n">match_i</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">match_i</span> <span class="ow">in</span> <span class="n">match</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="ow">in</span> <span class="n">match</span><span class="p">:</span>
+            <span class="n">iter_counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">iter_counts</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">diehard</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing_notes.html">Contributing Notes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Elton Law.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

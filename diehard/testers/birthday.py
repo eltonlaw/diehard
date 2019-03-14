@@ -82,10 +82,3 @@ def chisq_poisson(observed, mu, nsamples):
 
 def rotl(x, i, intsize):
 	return (((x << i) | (x >> (intsize - i))) & (2**intsize - 1))
-
-
-# # Test
-# if __name__ == "__main__":
-# 	samples = [[random.randint(0,2**32) for i in range(nms)] for j in range(100)]
-# 	pvalue = birthday(samples)
-# 	print(pvalue)

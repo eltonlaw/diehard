@@ -59,7 +59,7 @@ def sampleTs(samples, tstats, nsamples):
 	for arr in samples:
 		for i in range(intsize):
 			# shift bits and take lowest 24 bits
-			birthdays = sorted(set([rotl(val, i, intsize) & mask for val in arr]))
+			birthdays = sorted([rotl(val, i, intsize) & mask for val in arr])
 			intervals = defaultdict(int)
 			
 			for j in range(1, len(birthdays)):

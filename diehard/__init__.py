@@ -11,5 +11,6 @@ __copyright__ = 'Copyright 2018 Elton law'
 
 from diehard.testers import operm
 from diehard.testers import cat
+from diehard.testers import birthday
 
 __all__ = ["utils"]

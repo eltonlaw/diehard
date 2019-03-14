@@ -4,5 +4,6 @@ from diehard.testers.operm import operm
 
 __all__ = [
     "cat",
-    "operm"
+    "operm",
+    "birthday"
 ]
